@@ -11,14 +11,12 @@ body {
 }
 
 :root {
-  /* background color */
   --bg-primary-color: #0c0c0c;
   --bg-fill-color: #fdfdfc;
+  --bg-food-color: #ff3b3b;
 
-  /* text color */
   --text-primary-color: #f0f0f0;
 
-  /* spacing variables */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
@@ -27,10 +25,8 @@ body {
   --space-2xl: 40px;
   --space-3xl: 48px;
 
-  /* Border */
   --border-primary-color: #333333;
 
-  /* Border Radius */
   --border-radius-xs: 4px;
   --border-radius-sm: 8px;
   --border-radius-md: 12px;
@@ -57,11 +53,11 @@ section {
   padding: var(--space-2xl);
   display: flex;
   flex-direction: column;
-  height: 100;
   gap: var(--space-md);
+  height: 100vh;
 }
 
-section .infos {
+.infos {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -77,16 +73,60 @@ section .infos {
   border: 1px solid var(--border-primary-color);
   flex-grow: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(50px, 1fr));
+  justify-content: start;
+  align-content: start;
+  background-color: #000;
 }
 
+/* each cell */
 .block {
-  /* width: 30px;
-  height: 30px; */
+  width: 50px;
+  height: 50px;
   border: 1px solid var(--border-primary-color);
+  border-radius: 4px;
 }
 
 .fill {
   background-color: var(--bg-fill-color);
+}
+
+.food {
+  background-color: var(--bg-food-color);
+}
+
+.btn {
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: #35353587;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal .start-game,
+.modal .game-over {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  background-color: #111;
+  padding: var(--space-2xl);
+  border-radius: var(--border-radius-md);
+}
+
+.modal .game-over {
+  display: none;
 }
